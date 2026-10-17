@@ -1,6 +1,7 @@
 import { LoginScreen } from './components/LoginScreen'
 import { Messenger } from './components/Messenger'
 import { ChatProvider, useChat } from './store/ChatContext'
+import { Toaster } from 'react-hot-toast'
 
 function Shell() {
   const { credentials } = useChat()
@@ -9,8 +10,11 @@ function Shell() {
 
 export default function App() {
   return (
-    <ChatProvider>
-      <Shell />
-    </ChatProvider>
+    <>
+      <Toaster position="top-right" />
+      <ChatProvider>
+        <Shell />
+      </ChatProvider>
+    </>
   )
 }
