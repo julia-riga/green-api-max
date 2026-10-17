@@ -1,6 +1,6 @@
 # GREEN-API MAX Chat (Тестовое задание)
 
-[Ссылка на живое демо](https://ваша-ссылка.vercel.app)
+[Ссылка на живое демо](https://green-api-max-alpha.vercel.app/)
 
 ## 📸 Скриншоты
 - [Экран логина](./screenshots/login.png)
