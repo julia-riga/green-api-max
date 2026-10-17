@@ -20,10 +20,13 @@
    `git clone https://github.com/julia-riga/green-api-max.git`
 2. Установите зависимости:
    `npm install`
-3. Создайте файл `.env` в корне и добавьте:
-   `VITE_GREEN_API_URL=https://api.green-api.com`
-4. Запустите dev-сервер:
+3. Запустите dev-сервер (готово!):
    `npm run dev`
+
+*(Опционально)* Если нужно изменить адрес API, создайте файл `.env` в корне:
+```
+VITE_GREEN_API_URL=https://api.green-api.com
+```
 
 ## 🧪 Тесты
 Запуск тестов: `npm run test`
