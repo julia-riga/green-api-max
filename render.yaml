@@ -1,0 +1,16 @@
+# Деплой на Render.com — «одной кнопкой»:
+# 1. Заведите этот репозиторий на GitHub.
+# 2. На render.com выберите "New Web Service" -> укажите репозиторий.
+#    Render сам подхватит этот файл (Blueprint). Альтернатива:
+#    https://render.com/deploy?repo=<ваш-логин>/<ваш-репозиторий>
+services:
+  - type: web
+    name: max-chat-green-api
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
