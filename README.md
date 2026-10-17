@@ -3,9 +3,8 @@
 [Ссылка на живое демо](https://ваша-ссылка.vercel.app)
 
 ## 📸 Скриншоты
-<!-- Вставьте сюда ссылки на загруженные в GitHub картинки -->
-![Экран логина](./screenshots/login.png)
-![Окно чата](./screenshots/chat.png)
+- [Экран логина](./screenshots/login.png)
+- [Окно чата](./screenshots/chat.png)
 
 ## 🚀 Технологии
 - React 19
