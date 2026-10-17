@@ -36,10 +36,13 @@ export function candidateApiUrls(
   idInstance: string,
   explicitUrl?: string,
 ): string[] {
-  const urls: string[] = []
+  const hosts: string[] = []
   const push = (value?: string) => {
     const trimmed = value?.trim().replace(/\/$/, '')
-    if (trimmed && !urls.includes(trimmed)) urls.push(trimmed)
+    if (!trimmed) return
+    // Хост без протокола: https://XXXX.api.green-api.com -> XXXX.api.green-api.com
+    const host = trimmed.replace(/^https?:\/\//, '')
+    if (host && !hosts.includes(host)) hosts.push(host)
   }
 
   push(explicitUrl)
@@ -47,13 +50,19 @@ export function candidateApiUrls(
 
   const prefix = idInstance.slice(0, 4)
   if (/^\d{4}$/.test(prefix)) {
-    push(`https://${prefix}.api.green-api.com`)
+    push(`${prefix}.api.green-api.com`)
   }
   if (idInstance.startsWith('3')) {
-    push('https://3100.api.green-api.com')
+    push('3100.api.green-api.com')
   }
-  push('https://api.green-api.com')
-  return urls
+  push('api.green-api.com')
+
+  // На продакшн-сервере (server.js) запросы идут через прокси /api/<host>/...,
+  // что снимает ограничение CORS. В dev-режиме Vite ходит напрямую в GREEN-API.
+  const proxied = typeof window !== 'undefined' && window.location.protocol !== 'file:'
+  return hosts.map((host) =>
+    proxied ? `/api/${host}` : `https://${host}`,
+  )
 }
 
 export async function getStateInstance(
