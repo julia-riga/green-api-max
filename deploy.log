@@ -1,0 +1,19 @@
+
+> green-api-max@0.0.0 deploy
+> npm run build && node server.js
+
+
+> green-api-max@0.0.0 build
+> tsc -b && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 24 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.45 kB │ gzip:  0.29 kB
+dist/assets/index-DYhbykkn.css    5.84 kB │ gzip:  2.11 kB
+dist/assets/index-WzB11E16.js   236.59 kB │ gzip: 74.16 kB
+
+✓ built in 297ms
+MAX-чат запущен: http://localhost:3000
