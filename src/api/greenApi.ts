@@ -43,7 +43,7 @@ export function candidateApiUrls(
   }
 
   push(explicitUrl)
-  push(import.meta.env.VITE_GREEN_API_URL as string | undefined)
+  push(import.meta.env.VITE_GREEN_API_URL || 'https://api.green-api.com' as string)
 
   const prefix = idInstance.slice(0, 4)
   if (/^\d{4}$/.test(prefix)) {
